@@ -1,4 +1,3 @@
-
 //3. At the top of the game.js file, create a new array called buttonColours and set it to hold the sequence "red", "blue", "green", "yellow" .
 var buttonColours = ["red", "blue", "green", "yellow"];
 
@@ -15,5 +14,10 @@ function nextSequence() {
 
   //6. Add the new randomChosenColour generated in step 4 to the end of the gamePattern.
   gamePattern.push(randomChosenColour);
-}
 
+  //7. Use jQuery to select the button with the same id as the randomChosenColour
+  //8. Use Google/Stackoverflow to figure out how you can use jQuery to animate a flash to the button selected in step 1.
+  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+   var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+   audio.play();
+}

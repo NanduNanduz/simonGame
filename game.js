@@ -12,6 +12,8 @@ $(".btn").click(function(){
   var userChosenColour = $(this).attr("id");
   //12. Add the contents of the variable userChosenColour created in step 2 to the end of this new userClickedPattern
   userClickedPattern.push(userChosenColour);
+  //13. In the same way we played sound in nextSequence() , when a user clicks on a button, the corresponding sound should be played.
+  playSound(userChosenColour);
 })
 
 
@@ -30,7 +32,17 @@ function nextSequence() {
 
   //7. Use jQuery to select the button with the same id as the randomChosenColour
   //8. Use Google/Stackoverflow to figure out how you can use jQuery to animate a flash to the button selected in step 1.
-  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-   var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
-   audio.play();
+  // $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+  //var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+  //audio.play();
+  //15. Refactor the code in playSound() so that it will work for both playing sound in nextSequence() and when the user clicks a button.
+  playSound(randomChosenColour);
 }
+
+
+//14. Create a new function called playSound() that takes a single input parameter called name.
+function playSound(name){
+  var audio = new Audio("sounds/" + name + ".mp3");
+  audio.play();
+}
+

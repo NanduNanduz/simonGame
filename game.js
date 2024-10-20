@@ -14,6 +14,7 @@ $(".btn").click(function(){
   userClickedPattern.push(userChosenColour);
   //13. In the same way we played sound in nextSequence() , when a user clicks on a button, the corresponding sound should be played.
   playSound(userChosenColour);
+  animatePress(userChosenColour);
 })
 
 
@@ -44,5 +45,16 @@ function nextSequence() {
 function playSound(name){
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
+}
+
+
+//16. Create a new function called animatePress(), it should take a single input parameter called currentColour.
+function animatePress(currentColor){
+  //17. Use jQuery to add this pressed class to the button that gets clicked inside animatePress().
+  $("#" + currentColor).addClass("pressed");
+  //18.remove the pressed class after a 100 milliseconds.
+  setTimeout(function () {
+    $("#" + currentColor).removeClass("pressed");
+  }, 100);
 }
 

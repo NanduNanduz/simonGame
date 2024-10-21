@@ -4,6 +4,17 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 //11.create a new empty array with the name userClickedPattern.
 var userClickedPattern = [];
+//20. Create a new variable called level and start at level 0.
+var Level = 0;
+
+
+
+//19. Use jQuery to detect when a keyboard key has been pressed, when that happens for the first time, call nextSequence().
+$(document).keypress(function(){
+
+})
+
+
 
 
 //9. Use jQuery to detect when any of the buttons are clicked and trigger a handler function.

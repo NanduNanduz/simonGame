@@ -5,6 +5,7 @@ var gamePattern = [];
 //11.create a new empty array with the name userClickedPattern.
 var userClickedPattern = [];
 // need a way to keep track of whether if the game has started or not, so you only call nextSequence() on the first keypress.
+var started = false;
 
 //20. Create a new variable called level and start at level 0.
 var level = 0;
@@ -13,12 +14,12 @@ var level = 0;
 
 //19. Use jQuery to detect when a keyboard key has been pressed, when that happens for the first time, call nextSequence().
 $(document).keypress(function(){
-  if(!started){
+  if (!started) {
     //21. The h1 title starts out saying "Press A Key to Start", when the game has started, change this to say "Level 0".
 $("level-title").text("Level" + level);
-
+nextSequence();
+started = true;
   }
-
 })
 
 
@@ -40,7 +41,11 @@ $(".btn").click(function(){
 
 //1. Inside game.js create a new function called nextSequence()
 function nextSequence() {
-  
+  //22. Inside nextSequence(), increase the level by 1 every time nextSequence() is called.
+  level++;
+  //23. Inside nextSequence(), update the h1 with this change in the value of level.
+  $("#level-title").text("Level " + level);
+
   //2. Inside the new function generate a new random number between 0 and 3, and store it in a variable called randomNumber
   var randomNumber = Math.floor(Math.random() * 4);
 

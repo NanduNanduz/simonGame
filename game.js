@@ -34,13 +34,38 @@ $(".btn").click(function(){
   //13. In the same way we played sound in nextSequence() , when a user clicks on a button, the corresponding sound should be played.
   playSound(userChosenColour);
   animatePress(userChosenColour);
+  //25. Call checkAnswer() after a user has clicked and chosen their answer, passing in the index of the last answer in the user's sequence.
+  checkAnswer(userClickedPattern.length-1);
 })
+
+
+//24. Create a new function called checkAnswer(), it should take one input with the name currentLevel
+function checkAnswer(currentLevel){
+  //26. Write an if statement inside checkAnswer() to check if the most recent user answer is the same as the game pattern. If so then log "success", otherwise log "wrong".
+  if(gamePattern[currentLevel] === userClickedPattern[currentLevel]){
+    console.log("success");
+    //27. If the user got the most recent answer right in step 3, then check that they have finished their sequence with another if statement.
+    if(userClickedPattern.length === gamePattern.length){
+      //28. Call nextSequence() after a 1000 millisecond delay.
+      setTimeout(function(){
+        nextSequence();
+      },1000);
+    }
+  }
+  else{
+    console.log("wrong");
+  }
+}
 
 
 
 
 //1. Inside game.js create a new function called nextSequence()
 function nextSequence() {
+  
+  //29. Once nextSequence() is triggered, reset the userClickedPattern to an empty array ready for the next level.
+  userClickedPattern=[];
+
   //22. Inside nextSequence(), increase the level by 1 every time nextSequence() is called.
   level++;
   //23. Inside nextSequence(), update the h1 with this change in the value of level.

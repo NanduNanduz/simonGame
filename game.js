@@ -24,7 +24,6 @@ started = true;
 
 
 
-
 //9. Use jQuery to detect when any of the buttons are clicked and trigger a handler function.
 $(".btn").click(function(){
   //10. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
@@ -54,7 +53,17 @@ function checkAnswer(currentLevel){
   }
   else{
     console.log("wrong");
+    //29.there is a sound called wrong.mp3, play this sound if the user got one of the answers wrong.
+    playSound("wrong");
+    //30. In the styles.css file, there is a class called "game-over", apply this class to the body of the website when the user gets one of the answers wrong and then remove it after 200 milliseconds.
+    $("body").addClass("game-over");
+    setTimeout(function () {
+      $("body").removeClass("game-over");
+    }, 200);
+    //31. Change the h1 title to say "Game Over, Press Any Key to Restart" if the user got the answer wrong.
+    $("level-title").text("Game Over, Press Any Key to Restart");
   }
+
 }
 
 
